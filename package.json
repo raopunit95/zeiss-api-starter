@@ -1,0 +1,19 @@
+{
+  "name": "zeiss-store-hospital-request-starter",
+  "version": "0.3.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test test/api.test.js test/webhook.test.js",
+    "check": "node --check server.js && node --check inventory.js && node --check webhook.js && node --check public/app.js && node --check scripts/send-webhook.js",
+    "webhook:test": "node --env-file=.env scripts/send-webhook.js",
+    "dev": "node --env-file=.env server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
