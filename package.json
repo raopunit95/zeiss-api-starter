@@ -1,17 +1,17 @@
 {
-  "name": "zeiss-store-hospital-request-starter",
+  "name": "zeiss-store-hospital-requests",
   "version": "0.3.0",
   "private": true,
   "type": "module",
   "engines": {
-    "node": ">=22.13.0"
+    "node": ">=22.11.0"
   },
   "scripts": {
     "start": "node server.js",
-    "test": "node --test test/api.test.js test/webhook.test.js",
-    "check": "node --check server.js && node --check inventory.js && node --check webhook.js && node --check public/app.js && node --check scripts/send-webhook.js",
-    "webhook:test": "node --env-file=.env scripts/send-webhook.js",
-    "dev": "node --env-file=.env server.js"
+    "dev": "node --env-file=.env server.js",
+    "test": "node --test test/inventory.test.js test/handlers.test.js test/webhook.test.js test/server.test.js",
+    "check:doctors": "node --env-file=.env scripts/check-doctor-api.js",
+    "check": "node --check server.js && node --check handlers.js && node --check inventory.js && node --check webhook.js && node --check public/app.js && node --check scripts/check-doctor-api.js"
   },
   "dependencies": {
     "express": "^4.21.2"
